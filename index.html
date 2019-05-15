@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>f-bloom カフェ</title>
+<meta name="description" content="f-bloom(エフブルーム)のカフェ">
+<meta name="keywords" content="f-bloom エフブルーム カフェ コーヒー フード レストラン">
+<link href="css/reset.css" rel="stylesheet" media="all">
+<link href="css/style.css" rel="stylesheet" media="all">
+<link href="css/style-webfonts.css" rel="stylesheet" media="all">
+<link href="css/style-hamburger.css" rel="stylesheet" media="all">
+<link href="css/style-accmenu.css" rel="stylesheet" media="all">
+<link href="css/style-texteffects.css" rel="stylesheet" media="all">
+<link href="css/style-color.css" rel="stylesheet" media="all">
+
+<link href="css/themes/image.css" rel="stylesheet" media="all"><!--scrollUp-->
+
+<link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon.png">
+
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/jquery.scrollUp.min.js"></script>
+<link href="js/vegas/vegas.min.css" rel="stylesheet" media="all">
+<script src="js/vegas/vegas.min.js"></script>
+	
+<script>
+	$(function(){
+		$('.menu-btn').click(function(){
+			$('.drawer-menu').toggleClass('open');
+			$(this).toggleClass('active');
+			$('.drawer-bg').fadeToggle();
+		});
+		$('.drawer-bg').click(function (){
+			$(this).fadeOut();
+			$('.menu-btn').removeClass('active');
+			$('.drawer-menu').removeClass('open');
+		});
+		$('.drawer-menu a').on('click', function() {
+			$('.menu-btn').toggleClass('active');
+			$(".drawer-menu").toggleClass('open');
+			$('.drawer-bg').fadeToggle();
+		});
+	});
+</script>
+<script>
+	$(function(){
+		$.scrollUp({scrollImg: true});
+	});
+</script>
+<script>
+	function init() {
+		// スクロールして何ピクセルでアニメーションさせるか
+		var px_change   = 100;	// ヘッダを変化させるポイント (仮の値)
+		
+		var mql = window.matchMedia('(min-width:960px)');	// タブレット/PCサイズかどうかを調べるmedia query結果を取得
+		
+		// スクロールのイベントハンドラを登録
+		window.addEventListener('scroll', function(){
+			
+			px_change = $('.sticky-header').outerHeight();
+			//console.log("px_change=", px_change);
+//			console.log("sticky-header=", $('.sticky-header').outerHeight());
+//			console.log("scrollTop=", $(window).scrollTop());
+//			console.log(mql);
+			
+			if (mql.matches) { // スマホの時は固定ヘッダを表示させない
+				// 変化するポイントまでスクロールしたらクラスを追加
+				if ($(window).scrollTop() > px_change) {
+					$('.sticky-header').addClass('show');
+				} else {
+					$('.sticky-header').removeClass('show');
+				}
+			}  else if ($('.sticky-header').hasClass('show')) {
+				$('.sticky-header').removeClass('show');
+			}
+		});
+	}
+	window.onload = init();
+</script>
+<script>
+	// 固定ヘッダでのページ内リンクずれを解消する
+	$(function () {
+		var headerHeight = 0; //固定ヘッダの高さ
+		
+		$('a[href^="#"]').click(function(){
+			var mql = window.matchMedia('(min-width:960px)');	// タブレット/PCサイズかどうかを調べるmedia query結果を取得
+			if (mql.matches) {
+				headerHeight = $('.sticky-header').outerHeight();	// paddingを含む高さ
+				//console.log("height offset=", headerHeight);
+			}
+			var href= $(this).attr("href");
+			var target = $(href == "#" || href == "" ? 'html' : href);
+			var position = target.offset().top-headerHeight; //ヘッダの高さ分位置をずらす
+			$("html, body").animate({scrollTop:position}, 200, "swing");
+			return false;
+		});
+	});
+</script>
+<script>
+// ロゴのテキストアニメーションをするため、文字列を１文字ずつspanタグで囲む
+$(function() {
+	var textbox = document.querySelector('#txt-effects');
+	var text = textbox.textContent;
+
+	textbox.innerHTML = null;
+
+	text.split('').forEach(function (c) {
+		if (c == ' ') { // 単語の区切りの空白はCSSでmarginを入れる
+			textbox.innerHTML += '<span class="sp">'+'</span>';
+		} else {
+	  		textbox.innerHTML += '<span>'+c+'</span>';
+		}
+	});
+	// 上記ステップが実行されてからロゴとテキストが表示されるようにコントロールする。
+	// ページのロード中に一瞬ロゴとテキスト全体が表示されてしまうのを防ぐため。
+	$('#txt-effects').addClass('show');
+	$('.logo-animation').addClass('show');
+
+});
+</script>
+
+<!--背景スライドショー(vegas2)の呼び出し-->
+<script src="js/my-app.js"></script>
+
+</head>
+
+<body>
+<!--背景スライドショーを実行するコードはjs/my-app.jsに記述-->
+<header class="main-visual">
+	<div class="top-logo">
+		<div class="top-logo-inner logo-animation">
+			<img src="images/f-bloom-logo.svg" alt="">
+		</div>
+		<div id="txt-effects" class="title">Cafe Restaurant</div>
+	</div><!--top-logo-->
+		<div class="scroll-down-btn">
+			<a href="#content"><span class="icon-arrow-down2"></span></a>
+		</div>
+</header>
+	
+<div id="wrapper">
+	<div id="gnav-drawer">
+		<div class="drawer-bg"></div>
+		<button type="button" class="menu-btn">
+			<span class="bar bar1"></span>
+			<span class="bar bar2"></span>
+			<span class="bar bar3"></span>
+			<span class="label-menu">MENU</span>
+			<span class="label-close">CLOSE</span>
+		</button>
+
+		<nav class="drawer-menu c-primary">
+			<ul class="menu-list-v">
+				<li><a href="index.html">Top</a></li>
+				<li class="sub-menu"><a href="#sec-01">Menu</a>
+					<ul>
+						<li><a href="#sec-01">Seasonal</a></li>
+						<li><a href="#sec-03">Drink</a></li>
+						<li><a href="#sec-04">Food</a></li>
+						<li><a href="#sec-05">Dessert</a></li>
+					</ul>
+				</li><!--sub-menu-->
+				<li><a href="#sec-07">Products</a></li>
+				<li><a href="#sec-08">Access</a></li>
+			</ul>
+			<div class="share-icons">
+					<a href="#" target="_blank" title="Share on Facebook"><span class="icon-facebook"></span></a>
+						<a href="#" target="_blank" title="Share on Twitter"><span class="icon-twitter"></span></a>
+						<a href="#" target="_blank" title="Share on Instagram"><span class="icon-instagram"></span></a>
+					</div>
+		</nav>
+	</div><!--gnav-drawer-->
+
+	<!--sticky header code-->
+	<div class="sticky-header c-primary">
+		<div class="sticky-content container">
+			<nav class="gnav">
+				<ul class="gnav-menu">
+					<li><a href="index.html">Home</a></li>
+					<li class="sub-menu"><a href="#sec-01">Menu</a>
+						<ul class="c-primary">
+							<li><a href="#sec-01">Seasonal</a></li>
+							<li><a href="#sec-03">Drink</a></li>
+							<li><a href="#sec-04">Food</a></li>
+							<li><a href="#sec-05">Dessert</a></li>
+							<li><a href="#sec-07">Products</a></li>
+						</ul>
+					</li><!--sub-menu-->
+					<li><a href="#sec-08">Access</a></li>
+					<li><div class="share-icons">SHARE:
+					<a href="#" target="_blank" title="Share on Facebook"><span class="icon-facebook"></span></a>
+						<a href="#" target="_blank" title="Share on Twitter"><span class="icon-twitter"></span></a>
+						<a href="#" target="_blank" title="Share on Instagram"><span class="icon-instagram"></span></a>
+					</div>
+					</li>
+				</ul><!--gnav-menu-->
+			</nav><!--gnav-->
+		</div><!--sticky-content-->
+	</div>
+	<!--End of sticky header code-->
+	
+	
+	<div id="content" class="container-x">
+		<div class="news-box">
+			<h3 class="hd-t ft-1">NEWS | エフ・ブルームからのお知らせ</h3>
+			<a href="#"><div class="news-item-box">
+				<div class="thumbnail"><img src="images/news01-220x156.jpg" alt=""></div>
+				<div class="topics">
+					<p class="date m1">2018.10.24</p>
+					<p class="txt">当店のウェブサイトを作成しました。</p>
+					<span class="b-r icon-arrow-right2"></span>
+				</div>
+				</div></a>
+		</div>
+		<div class="txt-block">
+			<p class="txt txt-c">エフ・ブルームは、<span>爽やかな自然光が降り注ぐ空間で、</span><span>いつでも休日のような寛ぎ時間を楽しめる</span><spa>都会のカフェです。</spa></p>
+		</div>
+		
+		<div id="sec-01"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/banner-04-940x400.jpg" alt="Seasonal">
+		</div>
+		<section id="xxx-sec-01" class="menu-box">
+			<h2 class="hd2"><span class="txt-ul">Seasonal</span></h2>
+			<div class="txt-block">
+				<p class="txt txt-c">2018年秋の季節限定おすすめメニューのご紹介です。</p>
+				<p class="txt txt-c">販売期間: 2018年10月1日(月) ～ 2018年11月30日(金)</p>
+			</div>
+			<ul class="parts-list">
+			<li><div class="parts">
+					<div class="parts-inner">
+					<img src="images/b001-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>ブルーベリータルト</p>
+						<p>Blueberry Tart</p>
+						<p class="p1 price">&yen;400</p>
+					</div>
+					</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/b003-545x385.jpg" alt="">
+				<div class="item-desc">
+					<p>パンプキンタルト</p>
+					<p>Pumpkin Tart</p>
+					<p class="p1 price">&yen;400</p>
+				</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/b005-545x385.jpg" alt="">
+				<div class="item-desc">
+					<p>かぼちゃと栗のケーキ</p>
+					<p>Pumpkin and Chestnut Cake</p>
+					<p class="p1 price">&yen;400</p>
+				</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			</ul><!--parts-list-->
+		</section><!--sec-01-->
+	
+		<div id="sec-03"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/banner-02-940x400.jpg" alt="Drink">
+		</div>
+		<section id="xxx-sec-03" class="menu-box">
+			<h2 class="hd2"><span class="txt-ul">Drink</span></h2>
+			<!--アコーディオンメニュー-->
+			<div class="accbox">
+		<!--ラベル1-->
+				<input type="checkbox" id="label1" class="cssacc">
+				<label for="label1">コーヒー＆エスプレッソ</label>
+				<div class="accshow">
+					<ul class="parts-list">
+					<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a027-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>カフェ マキアート</p>
+								<p>Caffè Macchiato</p>
+								<p class="p1 price">&yen;500</p>
+							</div>
+							</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a028-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>キャラメル マキアート</p>
+							<p>Caramel Macchiato</p>
+							<p class="p1 price">&yen;500</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					</ul><!--parts-list-->
+					<div class="menu-parts">
+						<ul>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ブレンドコーヒー</p>
+										<p>Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アメリカンコーヒー</p>
+										<p>Coffee Americano</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>エスプレッソ</p>
+										<p>Espresso</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;450</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェオレ</p>
+										<p>Cafe au lait</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェ モカ</p>
+										<p>Cafe Mocha</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							
+						</ul>
+					</div><!--menu-parts-->
+				</div><!--accshow-->
+		<!--ラベル1-->
+
+		<!--ラベル2-->
+				<input type="checkbox" id="label2" class="cssacc">
+				<label for="label2">ラテ</label>
+				<div class="accshow">
+					<ul class="parts-list">
+					<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a007-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>ホットチョコレート</p>
+								<p>Hot Chocolate</p>
+								<p class="p1 price">&yen;400</p>
+							</div>
+							</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a010-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>カプチーノ チョコレート</p>
+							<p>Cream Chocolate Cappuccino</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a011-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>ラテ マキアート</p>
+							<p>Latte Macchiato</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					</ul><!--parts-list-->
+					<div class="menu-parts">
+						<ul>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カプチーノ</p>
+										<p>Cappuccino</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>抹茶ラテ</p>
+										<p>Green Tea Latte</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェ ブラジレーニョ</p>
+										<p>Cafe Brasileno</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ラシアンコーヒー</p>
+										<p>Russian coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;450</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>チェリーチョコレートコーヒー</p>
+										<p>Cherry Chocolate coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスト モカ</p>
+										<p>Iced Mocha</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスト ラシアンコーヒー</p>
+										<p>Russian Iced Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスト カフェモカ</p>
+										<p>Iced Cafe Mocha</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カシューナッツコーヒー</p>
+										<p>Cashew Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>トーステッド・アーマンドクリームコーヒー</p>
+										<p>Toasted Almond Cream Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ブルーベリークリームコーヒー</p>
+										<p>Blueberry Cream Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>マカデミアナッツコーヒー</p>
+										<p>Macadamia Nut Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ラズベリーラッテ</p>
+										<p>Raspberry Latte</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>バターコーヒー</p>
+										<p>Butter Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェ・デ・マーブル</p>
+										<p>Maple Iced Coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カプチーノ ロマーノ</p>
+										<p>Cappuccino Romano</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェ ロマーノ</p>
+										<p>Cafe Romano</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ウインナーコーヒー</p>
+										<p>Wiener coffee</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カフェクレーム</p>
+										<p>Cafe Creme</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ココナッツカプチーノ</p>
+										<p>Coconut Cappuccino</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスト カフェオレ</p>
+										<p>Iced Cafe Au Lait</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスト カプチーノ</p>
+										<p>Iced Cappuccino</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>カプチーノ イタリアン</p>
+										<p>Italian Cappuccino</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div><!--menu-parts-->
+				</div><!--accshow-->
+		<!--ラベル2-->
+
+		<!--ラベル3-->
+				<input type="checkbox" id="label3" class="cssacc">
+				<label for="label3">紅茶</label>
+				<div class="accshow">
+					<ul class="parts-list">
+					<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a023-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>ストレートティー</p>
+								<p>Tea</p>
+								<p class="p1 price">&yen;400</p>
+							</div>
+							</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a015-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>カモミールティー</p>
+							<p>Chamomile</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a022-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>ハーブティー (ネトル)</p>
+							<p>Herbal Nettle Cup Tea</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					</ul><!--parts-list-->
+					<div class="menu-parts">
+						<ul><li>
+								<div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ストレートティー</p>
+										<p>Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ミルクティー</p>
+										<p>Milk Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ロイヤルミルクティー</p>
+										<p>Royal Milk Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;450</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="menu-item-box">
+									<div class="item-name-box">
+										<p>アイスティー</p>
+										<p>Iced Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div><!--menu-parts-->
+				</div><!--accshow-->
+		<!--ラベル3-->
+
+		<!--ラベル4-->
+				<input type="checkbox" id="label4" class="cssacc">
+				<label for="label4">ハーブティー</label>
+				<div class="accshow">
+					<ul class="parts-list">
+						<li><div class="parts">
+								<div class="parts-inner">
+								<img src="images/a023-545x385.jpg" alt="">
+								<div class="item-desc">
+									<p>ハーブティー</p>
+									<p>Herbal Tea</p>
+									<p class="p1 price">&yen;400</p>
+								</div>
+								</div><!--parts-inner-->
+							</div><!--parts-->
+						</li>
+						<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a015-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>カモミールティー</p>
+								<p>Chamomile</p>
+								<p class="p1 price">&yen;400</p>
+							</div>
+							</div><!--parts-inner-->
+							</div><!--parts-->
+						</li>
+						<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a022-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>ハーブティー (ネトル)</p>
+								<p>Herbal Nettle Cup Tea</p>
+								<p class="p1 price">&yen;400</p>
+							</div>
+							</div><!--parts-inner-->
+							</div><!--parts-->
+						</li>
+						</ul><!--parts-list-->
+					<div class="menu-parts">
+						<ul>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ペパーミントティー</p>
+										<p>Peppermint tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ラズベリーリーフティー</p>
+										<p>Raspberry Leaf Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ローズヒップティー</p>
+										<p>Rosehip Tea</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;500</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div><!--menu-parts-->
+				</div><!--accshow-->
+			<!--ラベル4-->
+
+		<!--ラベル5-->
+				<input type="checkbox" id="label5" class="cssacc">
+				<label for="label5">ジュース/その他のお飲み物</label>
+				<div class="accshow">
+					<ul class="parts-list">
+					<li><div class="parts">
+							<div class="parts-inner">
+							<img src="images/a007-545x385.jpg" alt="">
+							<div class="item-desc">
+								<p>ホットチョコレート</p>
+								<p>Hot Chocolate</p>
+								<p class="p1 price">&yen;400</p>
+							</div>
+							</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a010-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>カプチーノ チョコレート</p>
+							<p>Cream Chocolate Cappuccino</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					<li><div class="parts">
+						<div class="parts-inner">
+						<img src="images/a011-545x385.jpg" alt="">
+						<div class="item-desc">
+							<p>ラテ マキアート</p>
+							<p>Latte Macchiato</p>
+							<p class="p1 price">&yen;400</p>
+						</div>
+						</div><!--parts-inner-->
+						</div><!--parts-->
+					</li>
+					</ul><!--parts-list-->
+					<div class="menu-parts">
+						<ul>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ココア</p>
+										<p>Hot Cocoa</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>ホットチョコレート</p>
+										<p>Hot Chocolate</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;400</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>コーヒーフロート</p>
+										<p>Iced Coffee Float</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;300</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>100%オレンジジュース</p>
+										<p>100% Orange Juice</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;300</p>
+									</div>
+								</div>
+							</li>
+							<li><div class="menu-item-box">
+									<div class="item-name-box">
+										<p>100%グレープフルーツジュース</p>
+										<p>100% Grapefruit Juice</p>
+									</div>
+									<div class="price-box">
+										<p>&yen;300</p>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div><!--menu-parts-->
+				</div><!--accshow-->
+			<!--ラベル5-->
+
+		</div><!--accbox-->
+		</section><!--sec-03-->
+		
+		<div id="sec-04"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/banner-03-940x400.jpg" alt="Food">
+		</div>
+		<section id="xxx-sec-04" class="menu-box">
+			<h2 class="hd2"><span class="txt-ul">Food</span></h2>
+			<div class="txt-block">
+				<p class="txt txt-c">すべてのフードメニューはランチタイムにお持ち帰りできます。</p>
+				<p class="txt txt-c m2">ランチタイム(平日のみ): 11:00 ～ 14:00</p>
+				<p class="txt txt-c">お得なセットメニューもご用意しております。</p>
+				<p class="txt txt-c">ドリンクとセットで <span class="price">&yen;100</span> 引き</p>
+			</div>
+			<ul class="parts-list">
+			<li><div class="parts">
+					<div class="parts-inner">
+					<img src="images/a013-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>コロッケサンド</p>
+						<p>Sandwich Croquettes Bread</p>
+						<p class="p1 price">&yen;400</p>
+					</div>
+					</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/a026-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>ハムレタストマトのサンド</p>
+						<p>Sandwich</p>
+						<p class="p1 price">&yen;400</p>
+					</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/a019-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>目玉焼きとサラダのサンド</p>
+						<p>Fried Eggs Salad Sandwich Sunny Side Up</p>
+						<p class="p1 price">&yen;500</p>
+					</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			</ul><!--parts-list-->
+			<div class="menu-parts">
+				<ul><li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>ベーコンエッグサンド</p>
+								<p>Bacon and Egg Sandwich</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;500</p>
+							</div>
+						</div>
+					</li>
+					<li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>チョリソータコス</p>
+								<p>Chorizo Tacos</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;600</p>
+							</div>
+						</div>
+					</li>
+					<li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>ピザトースト</p>
+								<p>Pizza Toast</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;500</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div><!--menu-parts-->
+		</section><!--sec-04-->
+		
+		<div id="sec-05"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/banner-01-940x400.jpg" alt="デザート">
+		</div>
+		<section id="xxx-sec-05" class="menu-box">
+			<h2 class="hd2"><span class="txt-ul">Dessert</span></h2>
+			<div class="txt-block">
+				<p class="txt txt-c">美味しいケーキとドリンクが楽しめるケーキセットもあります。</p>
+				<p class="txt txt-c">お好きなケーキ２個とコーヒーまたは紅茶のセットで<span class="price">&yen;1,000(税別)</span></p>
+			</div>
+			<ul class="parts-list">
+			<li><div class="parts">
+					<div class="parts-inner">
+					<img src="images/a021-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>イチゴのチョコレートケーキ</p>
+						<p>Strawberries Chocolate Cake</p>
+						<p class="p1 price">&yen;400</p>
+					</div>
+					</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/a024-545x385.jpg" alt="">
+				<div class="item-desc">
+					<p>イチゴのショートケーキ</p>
+					<p>Strawberry Shortcake</p>
+					<p class="p1 price">&yen;400</p>
+				</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+				<div class="parts-inner">
+				<img src="images/a025-545x385.jpg" alt="">
+				<div class="item-desc">
+					<p>カップケーキ</p>
+					<p>Frosting Cupcakes</p>
+					<p class="p1 price">&yen;400</p>
+				</div>
+				</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			</ul><!--parts-list-->
+			<div class="menu-parts">
+				<ul>
+					<li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>チーズケーキ</p>
+								<p>Cheesecake</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;400</p>
+							</div>
+						</div>
+					</li>
+					<li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>モンブラン</p>
+								<p>Mont Blanc</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;450</p>
+							</div>
+						</div>
+					</li>
+					<li><div class="menu-item-box">
+							<div class="item-name-box">
+								<p>チョコレートケーキ</p>
+								<p>Chocolate Cake</p>
+							</div>
+							<div class="price-box">
+								<p>&yen;400</p>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div><!--menu-parts-->
+		</section><!--sec-05-->
+		
+		<div id="sec-07"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/banner-05-940x400.jpg" alt="gift box">
+		</div>
+		<section id="xxx-sec-07" class="menu-box">
+			<h2 class="hd2"><span class="txt-ul">Products</span></h2>
+			<div class="txt-block">
+				<p class="txt txt-c">ブランドロゴ入りのオリジナルグッズです。</p>
+			</div>
+			<ul class="parts-list">
+			<li><div class="parts">
+					<div class="parts-inner">
+					<img src="images/logo-mug-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>陶製マグカップ</p>
+						<p>White Ceramic Mug</p>
+						<p class="p1 price m1">&yen;1,500</p>
+						<p class="txt-small">サイズ：内径77 × 外径83 x H98mm</p>
+					</div>
+					</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			<li><div class="parts">
+					<div class="parts-inner">
+					<img src="images/logo-canister-545x385.jpg" alt="">
+					<div class="item-desc">
+						<p>陶製キャニスター</p>
+						<p>White Ceramic Canister</p>
+						<p class="p1 price m1">&yen;2,000</p>
+						<p class="txt-small">サイズ：内径77 × 外径83 x H98mm</p>
+					</div>
+					</div><!--parts-inner-->
+				</div><!--parts-->
+			</li>
+			</ul><!--parts-list-->
+		</section><!--sec-07-->
+
+		<div id="sec-08"></div><!--ページ内リンクの位置-->
+		<div class="banner-img">
+			<img src="images/logo-wall-sign-940x400-96dpi.jpg" alt="看板">
+		</div>
+		
+		<section id="xxx-sec-08">
+			<h2 class="hd2"><span class="txt-ul">Access</span></h2>
+			<div id="map-box">
+				<div id="acc-info" class="txt-block">
+					<table class="address m2">
+						<tr><th>所在地</th><td><span class="no-sp">東京都豊島区</span><span>東池袋1丁目17</span><span> HogeHogeビル1階</span></td></tr>
+						<tr><th>連絡先</th><td><span>TEL 03-3xxx-0000 /</span><span>FAX 03-3xxx-0000</span></td></tr>
+						<tr><th>定休日</th><td>水曜日</td></tr>
+						<tr><th>営業時間</th><td><span>10:00 - 21:00</span><span>※L.O. 20:30</span></td></tr>
+					</table>
+					<h3 class="m1"><span class="txt-ul">交通アクセス</span></h3>
+					<ul>
+						<li>JR：「池袋駅」東口より徒歩7分</li>
+					</ul>
+					<hr class="solid">
+				</div>
+				<div id="map">
+					<h3 class="m1">店舗周辺地図</h3>
+					<div class="iframe-wrapper">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.7615363133173!2d139.71272336526025!3d35.732082780182466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d66f7b32a77%3A0x20791a8c0166f942!2z44CSMTcwLTAwMTMg5p2x5Lqs6YO96LGK5bO25Yy65p2x5rGg6KKL77yR5LiB55uu77yR77yX!5e0!3m2!1sja!2sjp!4v1539829017775" width="545" height="385" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
+			</div>
+		</section><!--sec-08-->
+
+	</div><!--content-->
+</div><!--wrapper-->
+
+<div id="photo-credit" class="container">
+	<p class="ft-1 m2">Photos via <a href="https://www.maxpixel.net/">Max Pixel</a> and <a href="https://unsplash.com/">Unsplash</a></p>
+</div>
+
+<div id="sub-footer-area" class="c-primary">
+	<div id="sub-footer-content" class="container">
+		<div class="footer-logo">
+			<img src="images/f-bloom-logo.svg" alt="">
+		</div>
+		<nav class="footer-nav">
+			<ul>
+				<li><a href="#">会社概要</a></li>
+				<li><a href="#">プライバシーポリシー</a></li>
+				<li><a href="#">お問い合わせ</a></li>
+			</ul>
+		</nav>
+		<nav class="footer-nav">
+			<ul>
+				<li><a href="#">サイトマップ</a></li>
+				<li><a href="#">スタッフ募集</a></li>
+			</ul>
+		</nav>
+	</div>
+</div><!--sub-footer-area-->
+<div id="footer-area" class="c-dark">
+	<footer id="site-footer" class="container">
+		<p class="en-spc">&copy; 2018 F Co.,Ltd. All rights reserved.</p>
+	</footer>
+</div><!--footer-area-->
+
+</body>
+</html>

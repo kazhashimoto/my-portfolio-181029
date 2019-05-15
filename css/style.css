@@ -1,0 +1,609 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Lato:300');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Marcellus+SC');
+
+*{
+	box-sizing: border-box;
+}
+
+body{
+	font-size: 16px;
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.87);
+	
+	font-family: -apple-system,'Lato',Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif;
+}
+
+.ft-1{
+	font-family: -apple-system,'Josefin Sans','Lato',Segoe UI,Helvetica Neue,Hiragino Kaku Gothic ProN,"メイリオ",meiryo,sans-serif;
+}
+
+/* 共通設定 */
+h1, h2, h3{
+	font-weight: normal;
+}
+
+/* 見出しの設定 */
+.hd2{
+	font-size: 1.8rem;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.hd3{
+	font-size: 1.5rem;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/* テキストのスタイル */
+.txt{
+	line-height: 1.5;
+}
+
+.txt-small{
+	font-size: 0.8rem;
+}
+
+@media screen and (min-width: 751px){
+	.txt-c{	/* タブレット/PCでは中央寄せ、小さい画面では左寄せ */
+		text-align: center;
+	}
+	.txt-c span{	/* 中央寄せするときの改行位置をコントロールする。改行させたくない範囲をspanで囲みブロック要素にしてカラム落ちさせる */
+		display: inline-block;
+	}
+}
+
+
+/* テキストに色鉛筆のような下線をつける */
+.txt-ul{
+	box-shadow: 0px -6px 5px -5px  #f06292 inset,0px 8px 4px -8px #f06292;	/* c-accent */
+}
+
+/* スペーシングの調整 */
+.p1{
+	padding-top: 0.5em;
+}
+
+.m1{
+	margin-bottom: 10px;
+}
+
+.m2{
+	margin-bottom: 20px;
+}
+
+section{
+	margin-bottom: 40px;
+}
+
+.txt-block{
+	width: 72.666%; /* 545/750px */
+	margin: 0 auto 20px auto;
+}
+
+/* 区切り線のスタイル */
+/* 参考: https://www.nxworld.net/tips/hr-css-design.html */
+
+/* 区切り線のリセット*/
+hr{
+	height: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+hr.solid{	/* 立体線 -　実線 */
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #fff;
+	width: 80%;
+	margin: 20px auto;
+}
+
+.price{
+	font-family: 'Josefin Sans', 'Lato', sans-serif;
+}
+
+.en-spc{ /* 英語表記の文字列で単語間のスペースを調整する */
+	word-spacing: 0.2em;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;		/* 親要素の色指定を継承*/
+}
+
+/* コンテンツ領域の定義 */
+.container{
+	width: 90%;		/* 左右に余白あり*/
+	margin: 0 auto;
+}
+
+.container-x {		/* スマホでは左右に余白なし、PCではmarginあり */
+	width: 100%;
+}
+
+@media screen and (min-width: 1024px){
+	.container,
+	.container-x{
+		width: 960px;		/* change to 960 grid system, 16 cols */
+		padding: 0 10px;
+		margin: 0 auto;
+	}
+}
+
+/* メインビジュアル: vegas */
+.main-visual{
+	width: 100%;
+	height: 100vh;
+	/* スマホの場合、vhはChromeのアドレスバーを含んだ高さになるため、フルスクリーン画像を表示すると、
+	画面の下まではみ出してしまっている。今回はそのままにしておく。*/
+}
+
+.top-logo{
+	width: 80%;
+	margin: 0 auto;
+	padding-top: 30%;	/* ブラウザの画面が縦長(portrait)の時は、ロゴを画面の真ん中へんにくるように上部を空ける */
+}
+
+@media screen and (orientation: landscape) {
+	.top-logo{
+		padding-top: 5%;	/* ブラウザの画面が横長の時は、ロゴの上部の隙間を詰めて画面の真ん中へんにくるように調整する */
+	}
+}
+
+.top-logo-inner{	/* logo image(SVG)の描画領域 */
+	width: 100%;	/* 親要素の幅一杯 */
+	height: auto;
+}
+
+/* テキストエフェクト用文字列のスタイル */
+.title{
+	font-family: 'Marcellus SC', serif;
+	text-shadow: 0 1px 1px #fff;
+}
+
+/* Scroll downボタン */
+.scroll-down-btn{
+	position: absolute;
+	bottom: 100px;		/* スマホの場合、高さ100vhだとbottom: 0は画面をはみ出すので表示位置を調整した */
+	right: 1rem;
+	z-index: 2;
+	text-shadow: 1px 0 1px #000;
+}
+
+.scroll-down-btn a{
+	text-decoration: none;
+	font-size: 1.5rem;
+	color: #fff;
+}
+/* End of main-visual settings */
+
+/* グローバルナビゲーション*/
+.gnav-menu{
+	width: 50%;
+	margin-left: auto;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.2rem;
+}
+
+/* ドロワーメニュー(のコンテンツのスタイル */
+/* メニュー表示の動きは、style-hamburger.cssで実装 */
+.menu-list-v li{	/* 縦並び */
+	padding: 10px 0;
+	font-size: 1.5rem;
+}
+
+.menu-list-v .sub-menu li:before{
+	content: "- ";
+	padding-left: 1rem;
+}
+
+.drawer-menu a:hover{
+	color: #01FF70;
+}
+
+/* グローバルナビのサブメニューの設定 (タブレット/PC) */
+.gnav-menu li{
+	position: relative;		/* サブメニュー表示の基準位置にする */
+}
+
+.gnav-menu ul{ /* サブメニューの階層 */
+	display: none;		/* 最初は非表はにする */
+	position: absolute;	/* 絶対配置 */
+	box-shadow: 2px 2px gray;
+}
+
+.gnav-menu ul li{
+	 padding: 0.5rem 1rem; 
+}
+
+.gnav-menu li:hover ul{	/* マウスポインタが乗ったらサブメニューを表示する */
+	 display: block; 
+}
+
+.gnav-menu a:hover{
+	color: #01FF70;
+}
+
+.share-icons{
+	font-size: 0.8rem;
+	line-height: 1.5rem;
+	vertical-align: bottom;
+}
+
+.drawer-menu{
+	position: relative;
+}
+
+.drawer-menu .share-icons{
+	font-size: 1.2em;
+	position: absolute;
+	bottom: 1em;
+}
+
+.share-icons span{
+	display: inline-block;
+	margin-left: 10px;
+}
+
+/* sticky heaerの設定 (タブレット/PC) */
+.sticky-header{
+	position: fixed;
+	left: 0;
+	top: -150px;
+	transition: 2s;
+	width: 100%;
+	border-bottom: solid 1px gray;
+	padding: 10px 1rem;
+	z-index: 100;		/* Google mapのiframeより上に表示されるように */
+}
+
+.sticky-header.show{
+	top: 0;
+}
+/* End of sticky header */
+
+/*
+ * タブレット(960px)まではハンバーガーメニューを表示
+ */
+@media screen and (min-width: 960px){
+	#gnav-drawer{
+		display: none;
+	}
+}
+
+#content{
+}
+
+/* NEWS boxの設定 */
+.news-box{
+	width: 97.333%;		/* 730/750px */
+	margin: 10px auto 40px auto;
+	min-width: 300px;
+	font-size: 0.8rem;
+	box-sizing: border-box;
+	position: relative;
+}
+
+@media screen and (min-width: 751px){
+	.news-box{
+		width: 40%;
+		max-width:350px;
+		margin: 10px auto  40px 1em;;
+	}
+}
+
+@media screen and (min-width: 1024px){
+	.news-box{
+		margin-left: 0;
+	}
+}
+
+.hd-t{
+	font-weight: bold;
+	color: rgba(0,0,0,0.7);
+	text-shadow: 1px 1px 1px #ccc;
+	padding: 8px 0.5rem;
+	letter-spacing: 0.1em;
+}
+
+.news-box a{
+	display: block;
+	color: inherit;
+}
+
+.news-box a:hover{
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+.news-box .date{
+	color: rgba(0, 0, 0, 0.6);
+}
+
+.news-item-box{
+	padding: 4px;
+	border: solid 1px #ccc;
+	overflow: hidden;
+}
+
+.news-box .thumbnail{
+	width: 20%;
+	float: left;
+}
+
+.thumbnail img{
+	width: 100%;
+	height: auto;
+}
+
+.topics{
+	width: 75%;
+	float: left;
+	box-sizing: border-box;
+	padding-left: 0.5rem;
+}
+
+.topics .b-r{
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}
+
+@media screen and (min-width: 751px){
+	.news-box .thumbnail{
+		width: 30%;
+		max-width: 100px;
+	}
+	.topics{
+		width: 67%;
+	}
+}
+/* End of NEWS box */
+
+/* 商品メニュー */
+
+.parts{
+	width: 72.666%; /* 545/750px */
+	margin: 0 auto;
+	margin-bottom: 40px
+}
+
+.parts-inner{
+	box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+
+@media screen and (min-width: 751px){
+	.parts{
+		text-align: center;
+	}
+	.parts-inner{
+		display: inline-block;	/* 内側のdivをinline-block要素にして、親div側からtext-alignで中央寄せ可能にする */
+	}
+}
+
+.parts img{
+	max-width: 100%;
+	height: auto;
+}
+
+.item-desc{
+	text-align: center;
+	padding: 0.5em 1em;
+}
+
+
+/* 商品メニューリスト */
+.menu-parts{
+	width: 72.666%;	/* 545/750px */
+	max-width: 545px;
+	margin: 0 auto;
+}
+.menu-item-box{
+	overflow: hidden;
+}
+
+.item-name-box{
+	width: 70%;
+	height: 4em;	/* 横並びブロックの高さを揃えるのにdisplay: flexが使えればheight指定は不要 */
+	float: left;
+}
+
+.price-box{
+	width: 30%;
+	height: 4em;	/* display: flexが使えればheight指定は不要 */
+	float: right;
+	font-family: 'Josefin Sans', 'Lato', sans-serif;
+}
+
+.banner-img{	/* スマホのみ表示 */
+	width: 100%;	/* 750/750px */
+	margin-bottom: 20px;
+}
+
+.banner-img img{
+	width: 100%;
+	height: auto;
+}
+
+/* 店舗アクセス情報 */
+/* Google Map */
+/* iframeのレスポンシブ対応、高さ自動調整を実装する */
+/* https://mae.chab.in/archives/2527#post2527-1 */
+iframe{
+	width: 100%;	/* 横幅はコンテンツの横幅に合わせて可変 */
+	height: 100%;	/* 高さもアスペクト比を維持したまま可変 */
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.2);		/* 枠線の代わり*/
+}
+
+#map{
+	width: 72.666%; /* 545/750px */
+	margin: 0 auto;
+}
+
+.iframe-wrapper{
+	position: relative;
+	/* 高さは、paddingを使って確保する */
+	/* calc関数でiframe要素の縦横比を計算して、ラッバー要素の高さに適用する */
+	padding: calc(385/545 * 100%) 0 0;
+}
+
+.address{
+	border: none;
+	border-collapse: separate;
+	border-spacing: 0 4px;
+}
+
+.address th{
+	font-weight: normal;
+	width: 5em;
+	text-align: left;
+	vertical-align: top;
+	border-right: solid 1px #ccc;
+	padding: 4px 0.5em 4px 0;
+}
+
+.address td{
+	padding: 4px 1em;
+}
+
+.address td span{
+	display: inline-block;
+	margin-right: 0.3em; /* 後続のspan要素が改行しなかった場合、右側にスペースをあける(単語の区切り)*/
+}
+
+.address td span.no-sp{	/* 後続のspan要素が改行しなかった場合、右側を詰める(連続した文字列に見せる) */
+	margin-right: 0;
+}
+
+@media screen and (min-width: 1024px){
+	#map-box{
+		overflow: hidden;
+	}
+	#map {
+		width: 100%;	/* reset */
+		margin: 0;		/* reset */
+	}
+	#acc-info{
+		width: 460px;
+		margin-left: 20px;
+		float: right;
+	}
+	.iframe-wrapper{
+		width: 460px;
+		padding-top: 460px;
+		float: left;
+	}
+	#acc-info hr{
+		display: none;
+	}
+	
+}
+
+
+@media screen and (min-width: 1024px){
+	.parts{
+		width: 100%;	/* 960/960px */
+	}
+	.parts img{
+		width: 460px;
+		height: auto;
+	}
+	
+	.parts-list{
+		/*background-color: yellow;*/
+		/* parts-innerにつけたbox-shadowの右側マージンをはみ出した部分も消えてしまうため、
+		  floatの解除にはclearfixの仕組みを使う。*/
+		/*overflow: hidden;*/	
+	}
+	
+	.parts-list:after{ 
+		/* clearfixと同じ実装。画面サイズが大きい時のみ発動するため、HTMLを書き換えずul要素に直接疑似要素を付けて対応する */
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.parts-list li{	/* 商品画像を2カラム形式でレイアウトする */
+		float: left;
+		margin-right: 20px;
+	}
+	.parts-list li:nth-child(2n){
+		margin-right: 0;
+	}
+
+}
+
+/* 画像クレジット表示 */
+#photo-credit a:hover{
+	color: #01FF70;
+}
+
+/* フッター領域 */
+#sub-footer-area{
+}
+
+#sub-footer-content{
+	padding: 1em 0;
+	overflow: hidden;
+	font-size: 0.8rem;
+	line-height: 1.7;
+}
+
+.footer-nav{
+	width: 50%;
+	float: left;
+}
+
+.footer-nav a:hover{
+	color: #01FF70;
+}
+
+.footer-logo{
+	display: none;	/* PC版のみ表示 */
+}
+
+@media screen and (min-width: 751px){
+	.footer-nav{
+		width: 30%;
+	}
+	.footer-logo{
+		width: 30%;
+		margin-right: 2%;
+		height: auto;
+		display: block;
+		float: left;
+	}
+}
+
+@media screen and (min-width: 1024px){
+	.footer-nav{
+		width: 340px;	/* 6 columns, 960 grid/16 columns */
+		margin-right: 20px;
+	}
+	.footer-logo{
+		width: 220px;	/* 4 columns */
+		height: auto;
+		display: block;
+		margin-right: 20px;
+		float: left;
+	}
+}
+
+#footer-area{
+}
+
+#site-footer{
+	padding: 1em 0;
+	font-size: 0.8rem;
+}
+/*
+  iPhone 6/7/8より大きい画面サイズ、タブレット、PC用
+ */
+@media screen and (min-width: 751px){
+}

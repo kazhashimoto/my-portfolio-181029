@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+.c-base{
+	background-color: #fff;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+/* 配色見本:  
+ * https://saruwakakun.com/html-css/material/colors
+ * https://saruwakakun.com/design/gallery/palette
+*/
+/*
+Primary		#607D8B		rgb(96, 125, 139）
+Secondary	#37474F		rgb(55, 71, 79);
+Accent		#F06292		rgba(240, 98, 146)
+*/
+.c-primary{
+	background-color: #607D8B;
+	color: white;
+}
+
+.c-primary-t{	/* 透過 */
+	background-color: rgba(96, 125, 139, 0.6);	/* #607D8B */
+	color: white;
+}
+
+.c-secondary{
+	background-color: #37474F;
+	color: white;
+}
+
+.c-secondary-t{	/* 透過 */
+	background-color: rgba(55, 71, 79, 0.6);	/* #37474F*/
+}
+
+.c-dark{
+	background-color: #37474F;		/* same as secondary color */
+	color: white;
+}
+
+.c-dark-t{	/* 透過 */
+	background-color: rgba(55, 71, 79, 0.6);	/* #37474F*/
+	color: white;
+}
+
+.c-accent{
+	background-color: #F06292;
+	color: white;
+}
+
+.c-accent-t{	/* 透過 */
+	background-color: rgba(240, 98, 146, 1);	/* #F06292 */
+	color: white;
+}

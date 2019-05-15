@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+ * CSSだけでアコーディオンを作る方法（レスポンシブ＆矢印付）: https://saruwakakun.com/html-css/reference/accordion
+ */
+/* ボックス全体 */
+.accbox{
+	margin: 2em 0;
+	padding: 0;
+}
+
+/* ラベル */
+.accbox label{
+	display: block;
+	margin: 1.5px 0;
+	padding: 13px 12px;
+	background-color: #fff2cc;
+	cursor: pointer;
+	transition: all 0.5s;
+}
+
+/* アイコンを表示 */
+.accbox label:before{
+	content: "\ea0a";
+	font-family: "icomoon";
+	color: rgba(0, 0, 0, 0.6);
+	padding-right: 8px;
+	
+}
+/* ラベルホバー時 */
+.accbox label:hover{
+	background-color: #ffe9a9;
+}
+
+/* チェックは隠す */
+.accbox input{
+	display: none;
+}
+
+/* 中身を非表示にしておく */
+/*
+ * display: noneで非表示にするのではなく、以下のように指定することで
+ * 表示させたときの動きが滑らかで、アコーディオンメニューらしくなる。
+ */
+.accbox .accshow{
+	height: 0;			/* 高さを0に */
+	padding: 0;			/* 余白を0に */
+	overflow: hidden;	/* はみ出たのを非表示に */
+	opacity: 0;			/* 中身を透明に */
+	transition: 0.8s;	/* クリック時の動きを滑らかに */
+}
+
+/* クリックで中身表示 */
+/*
+ * アイコンをクリックしたときに切り替えるために、HTMLでinputタグの後にlabelを配置。
+ * それによりinput:checked直後のlabelのアイコンを切り替えています。
+ *「チェックの入ったinput」の直後の「label」のさらに直後の「divタグ（.accshow）」を表すセレクタ
+*/
+.cssacc:checked + label + .accshow{
+	height: auto;		/* クリックでheightを0からautoに変えて、中身を表示させている */
+	overflow: visible;	/* 子要素がbox-shadowをつけている時、右側の影が親要素の右端をはみ出して表示できるようにするため */
+	opacity: 1;
+}
+
+/* アイコンを入れ替える */
+.cssacc:checked + label:before{
+	content: "\ea0b";	/* 切り替え後のアイコン */
+	font-family: "icomoon";
+	color: rgba(0, 0, 0, 0.6);
+}
