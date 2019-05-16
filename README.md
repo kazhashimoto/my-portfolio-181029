@@ -40,7 +40,7 @@ Mobile:
 - Adobe Dreamweaver CC 2017
 
 ## 素材画像
-- ロゴマーク: 自作。site01と同じ。
+- ロゴマーク: 自作。[site01](https://github.com/kazhashimoto/my-portfolio-site01)と同じ。
 - メインビジュアル： フリー画像
 - 商品画像： フリー画像
 
