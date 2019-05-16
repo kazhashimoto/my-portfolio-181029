@@ -16,7 +16,7 @@ PC:
 - Firefox (Windows)
 
 Mobile:
-- Chrome (Android 5.x)
+- Chrome (Android 5..0.2)
 
 レスポンシブ対応済み。
 
@@ -44,7 +44,5 @@ HTML5, CSS3, jQuery, JavaScript
 
 ## 外部モジュール
 - jQuery 2.2.4
-- [bxSlider](https://bxslider.com/) 4.2.12
-- [slick](https://kenwheeler.github.io/slick/) 1.8.0
+- [vegas](https://vegas.jaysalvat.com/) 2.4.3
 - [scrollUp](https://markgoodyear.com/labs/scrollup/) 2.4.1
-- [list.js](https://listjs.com/) 1.5.0
