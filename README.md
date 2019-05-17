@@ -10,7 +10,7 @@ DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto
 - メインビジュアルはフルスクリーンの背景スライドショー。
 - メインビジュアルに載せるロゴとテキストはCSSアニメーション。
 - ページ内のジャンプはスムーススクロール。
-- フード/ドリンク等のメニューは、アコーディオンメニューで開閉。
+- [フード/ドリンク等のメニュー](https://kazhashimoto.github.io/my-portfolio-site02/#sec-03)は、アコーディオンメニューで開閉。
 - 店舗の看板画像はモックアップのフリー素材(psd)のロゴをはめ込み。
 - 地図はGoogle Mapsをiframeで埋め込み表示。
 - SNSアイコンや一部の記号などは、Webフォント icomoonを使用。
