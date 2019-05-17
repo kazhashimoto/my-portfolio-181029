@@ -12,9 +12,9 @@ DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto
 - ページ内のジャンプはスムーススクロール。
 - [フード/ドリンク等のメニュー](https://kazhashimoto.github.io/my-portfolio-site02/#sec-03)は、アコーディオンメニューで開閉。
 - [グッズ](https://kazhashimoto.github.io/my-portfolio-site02/#sec-07)および[店舗の看板](https://kazhashimoto.github.io/my-portfolio-site02/#sec-08)画像はモックアップのフリー素材(psd)のロゴをはめ込み。
-- 地図はGoogle Mapsをiframeで埋め込み表示。
-- SNSアイコンや一部の記号などは、Webフォント icomoonを使用。
-- 欧文フォントは、Google Fontsを使用。
+- [地図](https://kazhashimoto.github.io/my-portfolio-site02/#sec-08)はGoogle Mapsをiframeで埋め込み表示。
+- SNSアイコンや一部の記号などはWebフォント icomoonを使用。
+- 欧文フォントはGoogle Fontsを使用。
 
 ## 表示確認環境
 PC:
@@ -34,9 +34,7 @@ Mobile:
 制作期間が短かったため、モバイルファーストで設計しコーディング。
 1. サイト構成の設計
 2. デザインカンプの作成
-3. 実装方法の検討と技術検証
-　　ハンバーガーメニュー、アコーディオンメニュー、\
-　　テキストアニメーション、背景スライドショー
+3. 技術検証
 4. コーディング
 5. テストアップと修正
 
