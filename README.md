@@ -1,6 +1,8 @@
 この作品は、私(Kazuhiro Hashimoto)が職業訓練校Webクリエイター養成科の生徒だった時に、カリキュラムの中で２つ目に制作した架空店舗(カフェ)のWebサイトです。\
 &ast;この作品に記載の団体、商品、所在地等は実在のものとは関係ありません。
 
+DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto.github.io/my-portfolio-site02/)
+
 ## 主な実装項目
 - シングルページのデザイン
 - PC版は固定ヘッダーのグローバルナビゲーション。下スクロールしてメインビジュアルを過ぎるとヘッダーが表示される。マウスホバー時に下位のメニューをドロップダウンリストで表示。
