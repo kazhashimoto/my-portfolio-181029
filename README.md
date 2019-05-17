@@ -3,6 +3,8 @@
 
 DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto.github.io/my-portfolio-site02/)
 
+![screenshot](https://user-images.githubusercontent.com/50348276/57941625-6a34f480-790a-11e9-8c11-c0331e3c6d4f.png)
+
 ## 主な実装項目
 - シングルページのデザイン
 - PC版は固定ヘッダーのグローバルナビゲーション。下スクロールしてメインビジュアルを過ぎるとヘッダーが表示される。マウスホバー時に下位のメニューをドロップダウンリストで表示。
