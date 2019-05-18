@@ -26,8 +26,8 @@ DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto
 斜体はサイト制作時にテストしたOS/バージョン。
 
 PC:
-- Chrome (_Windows 7_, Windows 10,  macOS 10.14 )
-- Firefox (_Windows 7_,  Windows 10, macOS 10.14)
+- Chrome (_Windows 7_, _Windows 10_,  macOS 10.14 )
+- Firefox (_Windows 7_,  _Windows 10_, macOS 10.14)
 - Safari 12 (macOS 10.14))
 
 Mobile:
