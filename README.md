@@ -23,14 +23,16 @@ DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto
 - 欧文フォントはGoogle Fontsを使用。
 
 ## 表示確認環境
+斜体はサイト制作時にテストしたOS/バージョン。
+
 PC:
-- Chrome (_Windows_)
-- Firefox (_Windows_)
+- Chrome (_Windows 7_, Windows 10,  macOS 10.14 )
+- Firefox (_Windows 7_,  Windows 10, macOS 10.14)
+- Safari 12 (macOS 10.14))
 
 Mobile:
-- Chrome (Android _5.0.2_)
-
-レスポンシブ対応済み。
+- Chrome (Android _5.0.2_, 9)
+- Safari 12 (iOS 12.1)
 
 ## 制作期間
 2018年10月12日〜10月29日 (18日間）\
