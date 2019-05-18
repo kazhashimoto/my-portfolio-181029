@@ -24,11 +24,11 @@ DEMO: [https://kazhashimoto.github.io/my-portfolio-site02/](https://kazhashimoto
 
 ## 表示確認環境
 PC:
-- Chrome (Windows)
-- Firefox (Windows)
+- Chrome (_Windows_)
+- Firefox (_Windows_)
 
 Mobile:
-- Chrome (Android 5..0.2)
+- Chrome (Android _5.0.2_)
 
 レスポンシブ対応済み。
 
