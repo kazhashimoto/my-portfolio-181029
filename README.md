@@ -47,8 +47,8 @@ Mobile:
 
 ## 素材画像
 - ロゴマーク: 自作。[site01](https://github.com/kazhashimoto/my-portfolio-site01)と同じ。
-- メインビジュアル： フリー画像
-- 商品画像： フリー画像
+- メインビジュアル： フリー画像 [Unsplash](https://unsplash.com/)
+- 商品画像： フリー画像 [Max Pixel](https://www.maxpixel.net/)
 
 ## 開発言語
 HTML5, CSS3, jQuery, JavaScript
